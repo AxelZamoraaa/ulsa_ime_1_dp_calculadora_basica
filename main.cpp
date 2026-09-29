@@ -2,37 +2,55 @@
 // Traduce la receta de RECETA.md a C++, paso por paso.
 // Deja el comentario "// Paso N" sobre cada bloque de código.
 
-// ¿Recuerdas qué hace iostream?
 #include <iostream>
 
-// ¿Qué funciones trae ahora utilerias.h? ¿Qué devuelve cada una?
 #include "utilerias.h"
 
 int main() {
-    // Variables (siempre inicializadas)
-    // TODO: opcion, a, b, resultado y simbolo.
-    //       ¿De qué tipo es cada una? Revisa la sección 2 de tu README.
-    //       ¿Con qué valor empieza un char?
+    int opcion = 0;
+    double a = 0;
+    double b = 0;
 
-    // Pasos 1 y 2: título y menú
-    // TODO
+    std::cout << "Bienvenido a la calculadora básica" << std::endl;
+    std::cout << "1) Suma" << std::endl;
+    std::cout << "2) Resta" << std::endl;
+    std::cout << "3) Multiplicacion" << std::endl;
+    std::cout << "4) Division" << std::endl;
+    std::cout << "5) Salir" << std::endl;
 
-    // Paso 3: leer la opción con leerEntero y repetir si no está entre 1 y 4
-    // TODO: ¿qué ciclo usaste en la Práctica 3 para volver a pedir un dato?
+    opcion = leerEntero("Elige una opcion (1-5): ");
+    while (opcion < 1 || opcion > 5) {
+        std::cout << "Opcion no valid, elige un numero del 1 al 5 " << std:: endl;
+        opcion = leerEntero("Elige una opcion (1-5): ");
+    }
 
-    // Pasos 4 y 5: leer los dos números con leerDecimal
-    // TODO
+    a = leerDecimal("primer numero: ");
+    b = leerDecimal("segundo numero: ");
 
-    // Paso 6: SOLO si la opción es división, ¿qué haces si b es 0?
-    // TODO
+    if (opcion== 4) {
+        while (b == 0) {
+            std::cout << "No se puede dividir entre cero" << std::endl;
+            b = leerDecimal("segundo numero: ");
+        }
+    }
 
-    // Paso 7: decisión múltiple
-    // TODO: switch (opcion) { case 1: ... break; ... default: ... }
-    //       ¿Qué pasa si olvidas un break? (Experimento A)
+    switch (opcion) {
+        case 1:
+            std::cout <<a<< "+" <<b<< "=" << a+b << std::endl;
+            break;
+        case 2:
+            std::cout <<a<< "-" <<b<< "=" << a-b << std::endl;
+            break;
+        case 3:
+            std::cout <<a<< "*" <<b<< "=" << a*b << std::endl;
+            break;
+        case 4:
+            std::cout <<a<< "/" <<b<< "=" << a/b << std::endl;
+            break;
+        case 5:
+            std::cout << "Saliendo de la calculadora" << std::endl;
+            break;
+    }
 
-    // Paso 8: salida -> a simbolo b = resultado
-    // TODO
-
-    // ¿Qué significa return 0;?
     return 0;
 }
