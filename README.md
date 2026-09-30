@@ -56,21 +56,22 @@ g++ -Wall -Wextra -std=c++17 main.cpp -o calculadora
 ## 7. Ejemplo de ejecución (Fase 3)
 <!-- Pega aquí lo que muestra tu programa en pantalla con una división donde primero escribes 0 como segundo número. -->
 
-```
-_____
-```
+Primer numero: 4
+Segundo numero: 0
+No se puede dividir entre cero
+segundo numero distinto de 0: 
 
 ## 8. De la receta al código (Fase 3)
 <!-- Para cada paso de la receta, escribe la instrucción (o instrucciones) de C++ que lo implementa. -->
 
 | Paso de la receta | Instrucción de C++ que lo implementa |
 |---|---|
-| 1 y 2. Título y menú | _____ |
-| 3. Leer y validar la opción | _____ |
-| 4 y 5. Leer `a` y `b` | _____ |
-| 6. Validar el divisor | _____ |
-| 7. Decisión múltiple (un `case`) | _____ |
-| 8. Mostrar el resultado | _____ |
+| 1 y 2. Título y menú | std::cout << "Calculadora basica" << std::endl; |
+| 3. Leer y validar la opción | opcion = leerEntero("Elige una opcion (1-4): "); seguido de while (opcion < 1 || opcion > 4) { ... } |
+| 4 y 5. Leer `a` y `b` | a = leerDecimal("Primer numero: "); y b = leerDecimal("Segundo numero: "); |
+| 6. Validar el divisor | if (opcion == 4) { while (b == 0) { ... b = leerDecimal(...); } } |
+| 7. Decisión múltiple (un `case`) | case 1: resultado = a + b; simbolo = '+'; break; |
+| 8. Mostrar el resultado | std::cout << a << " " << simbolo << " " << b << " = " << resultado << std::endl; |
 
 **¿Hubo algún paso de la receta que te costó traducir a C++? ¿Cuál y por qué?**
 _____
