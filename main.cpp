@@ -16,12 +16,11 @@ int main() {
     std::cout << "2) Resta" << std::endl;
     std::cout << "3) Multiplicacion" << std::endl;
     std::cout << "4) Division" << std::endl;
-    std::cout << "5) Salir" << std::endl;
 
-    std::cout << "Elige una opcion: (1-5) ";
+    std::cout << "Elige una opcion: (1-4) ";
     std::cin >> opcion;
-        while (opcion < 1 || opcion > 5) {
-            std::cout << "opcion no valida, elige una opcion: (1-5) ";
+        while (opcion < 1 || opcion > 4) {
+            std::cout << "opcion no valida, elige una opcion: (1-4) ";
             std::cin >> opcion;
         }
 
@@ -51,9 +50,6 @@ int main() {
             break;
         case 4:
             std::cout <<a<< "/" <<b<< "=" << a/b << std::endl;
-            break;
-        case 5:
-            std::cout << "Saliendo de la calculadora" << std::endl;
             break;
     }
 
