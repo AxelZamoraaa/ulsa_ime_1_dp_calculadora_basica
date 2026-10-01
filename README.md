@@ -74,15 +74,14 @@ segundo numero distinto de 0:
 | 8. Mostrar el resultado | std::cout << a << " " << simbolo << " " << b << " = " << resultado << std::endl; |
 
 **¿Hubo algún paso de la receta que te costó traducir a C++? ¿Cuál y por qué?**
-_____
-
+Lo de hacer que b tuviera que ser distinto que 0, porque no sabia que poner 
 ## 9. Experimentos (Fase 3)
 
 **Experimento A: sin el `break` del `case 1`, ¿qué mostró el programa con 8 + 5? ¿Qué te dijo el compilador? ¿Por qué pasó?**
-_____
+el compilador avisó de una falla en el codigo 
 
 **Experimento B: sin la validación del Paso 6, ¿qué mostró el programa con 5 / 0? ¿Tiene sentido?**
-_____
+El programa no aviso ni se cayo, ya que no tiene sentido la division entre 0
 
 **Experimento C (opcional): con `a` y `b` de tipo `int`, ¿qué resultado dio 7 / 2? ¿Te avisó el compilador?**
 _____
@@ -91,31 +90,31 @@ _____
 
 | Caso | Entradas (opción, a, b) | Esperado | Obtenido | ¿Pasó? |
 |---|---|---|---|---|
-| Suma | 1, 8, 5 | 8 + 5 = 13 | _____ | _____ |
-| Resta negativa | 2, 3, 5 | 3 - 5 = -2 | _____ | _____ |
-| Multiplicación con decimales | 3, 2.5, 4 | 2.5 * 4 = 10 | _____ | _____ |
-| Multiplicación con negativo | 3, -3, 4 | -3 * 4 = -12 | _____ | _____ |
-| División | 4, 7, 2 | 7 / 2 = 3.5 | _____ | _____ |
-| Dividendo cero | 4, 0, 5 | 0 / 5 = 0 | _____ | _____ |
-| Divisor cero | 4, 5, 0 (luego 2) | vuelve a pedir `b`; 5 / 2 = 2.5 | _____ | _____ |
-| Suma con cero | 1, 5, 0 | 5 + 0 = 5 (**no** vuelve a pedir `b`) | _____ | _____ |
-| Opción fuera de rango | 5 (luego 1), 8, 5 | vuelve a pedir la opción; 8 + 5 = 13 | _____ | _____ |
-| Opción cero | 0 (luego 1), 8, 5 | vuelve a pedir la opción; 8 + 5 = 13 | _____ | _____ |
-| Opción decimal | 2.5 (luego 2), 3, 5 | `leerEntero` vuelve a pedir; 3 - 5 = -2 | _____ | _____ |
-| Opción con texto | `suma` (luego 1), 8, 5 | `leerEntero` vuelve a pedir; 8 + 5 = 13 | _____ | _____ |
-| Número con texto | 1, `abc` (luego 8), 5 | `leerDecimal` vuelve a pedir; 8 + 5 = 13 | _____ | _____ |
-| Caso propio 1 | _____ | _____ | _____ | _____ |
-| Caso propio 2 | _____ | _____ | _____ | _____ |
+| Suma | 1, 8, 5 | 8 + 5 = 13 | 8 + 5 = 13 | si |
+| Resta negativa | 2, 3, 5 | 3 - 5 = -2 | 3 - 5 = -2 | si |
+| Multiplicación con decimales | 3, 2.5, 4 | 2.5 * 4 = 10 | 2.5 * 4 = 10 | si |
+| Multiplicación con negativo | 3, -3, 4 | -3 * 4 = -12 | -3 * 4 = -12 | si |
+| División | 4, 7, 2 | 7 / 2 = 3.5 | 7 / 2 = 3.5 | si |
+| Dividendo cero | 4, 0, 5 | 0 / 5 = 0 | 0 / 5 = 0 | si |
+| Divisor cero | 4, 5, 0 (luego 2) | vuelve a pedir `b`; 5 / 2 = 2.5 | pide b otra vez | si |
+| Suma con cero | 1, 5, 0 | 5 + 0 = 5 (**no** vuelve a pedir `b`) | 5 + 0 = 5 (no pide b otra vez) | si |
+| Opción fuera de rango | 5 (luego 1), 8, 5 | vuelve a pedir la opción; 8 + 5 = 13 | vuelve a pedir la opción; 8 + 5 = 13 | si |
+| Opción cero | 0 (luego 1), 8, 5 | vuelve a pedir la opción; 8 + 5 = 13 | vuelve a pedir la opción; 8 + 5 = 13 | si |
+| Opción decimal | 2.5 (luego 2), 3, 5 | `leerEntero` vuelve a pedir; 3 - 5 = -2 | toma el .5 como el primer numero | no |
+| Opción con texto | `suma` (luego 1), 8, 5 | `leerEntero` vuelve a pedir; 8 + 5 = 13 |elije una opcion valida se repite infinitamente en forma de error | no |
+| Número con texto | 1, `abc` (luego 8), 5 | `leerDecimal` vuelve a pedir; 8 + 5 = 13 | toma las letras como 0 | no |
+| Caso propio 1 | 1, 1, 1 | 1+1=2 | 1+1=2 | si |
+| Caso propio 2 | 2, 1, 1 | 1-1=0 | 1-1=0 | si |
 
 ## 11. Bitácora de mejoras (Fase 4)
 
 | # | ¿Qué falló o qué quise mejorar? | ¿Qué cambié? | ¿Funcionó? |
 |---|---|---|---|
-| 1 | _____ | _____ | _____ |
-| 2 | _____ | _____ | _____ |
+| 1 | Los números se pedían dos veces | deje solo una forma de leer cada numero | si |
+| 2 | los cambios no se reflejaban y se quedaban versines viejas | guarde el archivo y volvi a compilar | si |
 
 **¿Encontré algo que la receta no contemplaba? ¿Qué?**
-_____
+no dice la receta que hacer si el usuario quiere hacer mas de una operacion 
 
 **Reto elegido (opcional):** _____
 
@@ -123,27 +122,27 @@ _____
 
 | Duda | Lo que ya intenté |
 |---|---|
-| _____ | _____ |
+| Por que con cin el programa se cicla si escribo texto en un número, y leerEntero o leerDecimal no | probe con cin y las funciones de las utilerias |
 
 ## 13. Reflexión final
 
 **¿Qué aprendí con esta práctica?**
-_____
+a traducir de pseudocodigo a c++
 
 **Ahora que terminé, ¿qué cambiaría de mi proceso?**
-_____
+guardar y compilar en cada cambio que haga
 
 **¿Qué fue lo más difícil y cómo lo resolví?**
-_____
+entender porque pedia los numeros 2 veces, lo resolvi comparando lo que salia en la terminal, con el codigo
 
 **¿Qué pregunta me quedó sin responder?**
-_____
+Cómo hacen leerEntero y leerDecimal para detectar que el usuario escribió texto
 
 **¿Fue más fácil programar a partir de una receta ajena que de la mía? ¿Por qué?**
-_____
+si porque ya tenia el orden definido
 
 **Si yo hubiera diseñado la receta, ¿qué le cambiaría?**
-_____
+agregar una quinta opcion para salir de la calculadora
 
 ## 14. Lista de verificación antes de entregar (Fase 5)
 
